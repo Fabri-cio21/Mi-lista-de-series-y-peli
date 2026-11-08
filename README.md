@@ -4,7 +4,7 @@ Lista personal de películas y series para llevar lo que quieres ver y lo que ya
 
 Tiene dos versiones: una de **escritorio** (Python) y una **web** (HTML, CSS y JavaScript).
 
-![Captura de la versión web](capturas/web.png)
+![Captura de la versión web](https://github.com/Fabri-cio21/Mi-lista-de-series-y-peli/blob/main/Captura%20de%20pantalla%202026-11-07%20231328.png)
 
 ## Funciones
 
