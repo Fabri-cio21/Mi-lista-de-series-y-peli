@@ -60,7 +60,3 @@ Las dos versiones usan el mismo formato de `watchlist.json`, así que puedes pas
 
 - Escritorio: Python, CustomTkinter, Pillow
 - Web: HTML, CSS y JavaScript (sin librerías)
-
-## Autor
-
-<Tu Fabricio Villar Ato> · <enlace a tu perfil de GitHub>
