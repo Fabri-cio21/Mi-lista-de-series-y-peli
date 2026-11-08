@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Watchlist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header>
+    <h1>🎬 Mi Watchlist</h1>
+    <span id="contador"></span>
+  </header>
+
+  <!-- Barra de herramientas: búsqueda, filtros, orden y botones -->
+  <div class="barra">
+    <input id="buscador" type="search" placeholder="Buscar título o género...">
+
+    <div class="filtros">
+      <button data-tipo="todos" class="activo">Todos</button>
+      <button data-tipo="movie">Películas</button>
+      <button data-tipo="series">Series</button>
+    </div>
+
+    <select id="selectorOrden">
+      <option value="recientes">Más recientes</option>
+      <option value="estrellas">Más estrellas</option>
+      <option value="puntuacion">Mayor puntuación</option>
+      <option value="titulo">Título A–Z</option>
+      <option value="anio">Por año</option>
+    </select>
+
+    <button id="btnExportar">Exportar</button>
+    <button id="btnImportar">Importar</button>
+    <input id="archivoImportar" type="file" accept=".json" hidden>
+    <button id="btnAgregar" class="principal">+ Agregar</button>
+  </div>
+
+  <!-- Aquí se dibujan las tarjetas -->
+  <main id="lista"></main>
+
+  <!-- Ventana de detalle -->
+  <dialog id="dialogoDetalle"></dialog>
+
+  <!-- Ventana del formulario (agregar / editar) -->
+  <dialog id="dialogoForm">
+    <form id="formulario">
+      <h2 id="tituloForm"></h2>
+
+      <p class="etiqueta">Tipo</p>
+      <label><input type="radio" name="tipo" value="movie" checked> Película</label>
+      <label><input type="radio" name="tipo" value="series"> Serie</label>
+
+      <label>Título *
+        <input id="campoTitulo" required maxlength="120">
+      </label>
+
+      <div class="fila">
+        <label>Año <input id="campoAnio" type="number" min="1888"></label>
+        <label>Género <input id="campoGenero" maxlength="80"></label>
+      </div>
+
+      <label>Descripción / notas
+        <textarea id="campoDesc" rows="3"></textarea>
+      </label>
+
+      <p class="etiqueta">Calificación con estrellas</p>
+      <div id="estrellas"></div>
+
+      <p class="etiqueta">Puntuación (0 a 100, 0 = sin puntuar): <b id="textoPuntos"></b></p>
+      <div class="fila">
+        <input id="rango" type="range" min="0" max="100" value="0">
+        <input id="numero" type="number" min="0" max="100">
+      </div>
+
+      <!-- Solo se muestra si el tipo es Serie -->
+      <fieldset id="bloqueSerie" hidden>
+        <legend>Progreso de la serie</legend>
+        <div class="fila">
+          <label>Temporadas vistas <input id="tempVistas" type="number" min="0" value="0"></label>
+          <label>Temporadas totales <input id="tempTotales" type="number" min="0" value="0"></label>
+        </div>
+        <div class="fila">
+          <label>Episodios vistos <input id="epsVistos" type="number" min="0" value="0"></label>
+          <label>Episodios totales <input id="epsTotales" type="number" min="0" value="0"></label>
+        </div>
+      </fieldset>
+
+      <p class="etiqueta">Póster</p>
+      <input id="campoImagen" type="file" accept="image/*">
+      <img id="vistaPrevia" alt="Vista previa" hidden>
+
+      <div class="botones-form">
+        <button type="button" id="btnCancelar">Cancelar</button>
+        <button class="principal">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
